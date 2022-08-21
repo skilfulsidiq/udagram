@@ -18,7 +18,14 @@ spec:
       containers:
       - image: skilfulsidiq/udagram-api-user:v1
         name: backend-user 
-        imagePullPolicy: Always       
+        imagePullPolicy: Always  
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"      
         env:
         - name: URL
           valueFrom:
