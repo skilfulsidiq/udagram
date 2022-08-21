@@ -2,7 +2,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: obalowu-udagram-cluster
+  name: obalowut-udagram-cluster
   region: us-east-1
 
 # nodeGroups:
