@@ -16,7 +16,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-        - image: skilfulsidiq/udagram-reverseproxy
+        - image: skilfulsidiq/reverseproxy:v1
           name: reverseproxy
           imagePullPolicy: Always
           resources:
