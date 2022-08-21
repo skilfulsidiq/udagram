@@ -3,18 +3,18 @@ services:
   reverseproxy:
     build:
       context: .
-    image: skilfulsidiq/udagram-reverseproxy:v1
+    image: skilfulsidiq/udagram-reverseproxy
   backend_user:
     build:
       context: ./udagram-api-user
-    image: skilfulsidiq/udagram-api-user:v1
+    image: skilfulsidiq/udagram-api-user
   backend_feed:
     build:
       context: ./udagram-api-feed  
-    image: skilfulsidiq/udagram-api-feed:v1
+    image: skilfulsidiq/udagram-api-feed
   frontend:
     build:
       context: ./udagram-frontend
       args:
         - BUILD_ENV=development
-    image: skilfulsidiq/udagram-frontend:v1
+    image: skilfulsidiq/udagram-frontend

@@ -20,7 +20,7 @@ services:
       timeout: 5s
       retries: 5
   reverseproxy:
-      image: skilfulsidiq/udagram-reverseproxy:v1
+      image: skilfulsidiq/udagram-reverseproxy:v2
       ports:
           - 8080:8080
       restart: always
@@ -28,7 +28,7 @@ services:
         - backend-user
         - backend-feed     
   backend-user:
-    image: skilfulsidiq/udagram-api-user:v1
+    image: skilfulsidiq/udagram-api-user:v2
     environment:
       POSTGRESS_USERNAME: $POSTGRES_USERNAME
       POSTGRESS_PASSWORD: $POSTGRES_PASSWORD 
@@ -42,7 +42,7 @@ services:
     depends_on:
       - db
   backend-feed:
-    image: skilfulsidiq/udagram-api-feed:v1
+    image: skilfulsidiq/udagram-api-feed:v2
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
@@ -58,6 +58,6 @@ services:
     depends_on:
       - db
   frontend:
-    image: skilfulsidiq/udagram-frontend:v1
+    image: skilfulsidiq/udagram-frontend:v2
     ports:
       - "8100:80"
