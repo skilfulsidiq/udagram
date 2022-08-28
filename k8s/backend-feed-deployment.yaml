@@ -1,5 +1,4 @@
 apiVersion: apps/v1
-# apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
@@ -17,14 +16,8 @@ spec:
         service: backend-feed
     spec:
       containers:
-      - image: skilfulsidiq/udagram-api-feed:v1
+      - image: skilfulsidiq/udagram-api-feed:v7
         name: backend-feed
-        imagePullPolicy: Always 
-        resources:
-          limits:
-            cpu: 500m
-          requests:
-            cpu: 200m
         env:
         - name: URL
           valueFrom:
@@ -74,9 +67,16 @@ spec:
         volumeMounts:
         - name: aws-secret
           mountPath: "/root/.aws/"
-          readOnly: true        
+          readOnly: true 
+        volumes:
+          - name: aws-secret
+            secret:
+            secretName: aws-secret
+      resources:
+          requests:
+            memory: "100Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
       restartPolicy: Always
-      volumes:
-      - name: aws-secret
-        secret:
-          secretName: aws-secret       
